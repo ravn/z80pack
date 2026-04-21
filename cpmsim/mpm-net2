@@ -1,6 +1,9 @@
 #!/bin/sh
+# MP/M II + CP/NET server launcher.
+# Uses `cp` (not `ln`) so CCP's one-shot $$$.SUB deletion doesn't
+# mutate the pristine library copies.
 
 rm -f disks/drive[ab].dsk
-ln disks/library/mpm-net2-1.dsk disks/drivea.dsk
-ln disks/library/mpm-net2-2.dsk disks/driveb.dsk
+cp disks/library/mpm-net2-1.dsk disks/drivea.dsk
+cp disks/library/mpm-net2-2.dsk disks/driveb.dsk
 ./cpmsim
