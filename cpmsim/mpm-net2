@@ -57,4 +57,4 @@ for hd in i j; do
         ./srctools/mkdskimg $hd
     fi
 done
-./cpmsim
+exec ./cpmsim
