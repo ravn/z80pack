@@ -8,6 +8,7 @@
 */auxiliaryout.txt
 */disks/*.dsk
 */disks/backups/
+*/disks/local/
 */lpt[12].txt
 */printer.txt
 *~
