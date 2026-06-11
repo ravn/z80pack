@@ -20,12 +20,12 @@
 #define FAST_BLOCK	/* much faster but not accurate Z80 block instr. */
 #endif
 
-/*#define WANT_ICE*/	/* attach ICE to machine */
+#define WANT_ICE	/* attach ICE to machine */
 #ifdef WANT_ICE
-/*#define WANT_TIM*/	/* don't count t-states */
-/*#define HISIZE  1000*//* no history */
-/*#define SBSIZE  10*/	/* no software breakpoints */
-/*#define WANT_HB*/	/* no hardware breakpoint */
+#define WANT_TIM	/* don't count t-states */
+#define HISIZE  1000	/* no history */
+#define SBSIZE  10	/* no software breakpoints */
+#define WANT_HB	/* no hardware breakpoint */
 #endif
 
 #define HAS_DISKS	/* uses disk images */
@@ -36,7 +36,7 @@
 #define NUMSOC	4	/* number of server sockets */
 #define TCPASYNC	/* tcp/ip server can use async I/O */
 /*#define CNETDEBUG*/	/* client network protocol debugger */
-/*#define SNETDEBUG*/	/* server network protocol debugger */
+#define SNETDEBUG	/* server network protocol debugger */
 
 /*
  *	The following defines may be modified and activated by
