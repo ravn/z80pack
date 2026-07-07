@@ -20,7 +20,7 @@
 #define FAST_BLOCK	/* much faster but not accurate Z80 block instr. */
 #endif
 
-#define WANT_ICE	/* attach ICE to machine */
+/*#define WANT_ICE*/	/* attach ICE to machine (disabled: stops auto-boot, breaks mpm-net2 exec ./cpmsim) */
 #ifdef WANT_ICE
 #define WANT_TIM	/* don't count t-states */
 #define HISIZE  1000	/* no history */
@@ -36,7 +36,7 @@
 #define NUMSOC	4	/* number of server sockets */
 #define TCPASYNC	/* tcp/ip server can use async I/O */
 /*#define CNETDEBUG*/	/* client network protocol debugger */
-#define SNETDEBUG	/* server network protocol debugger */
+/*#define SNETDEBUG*/	/* server network protocol debugger (disabled with WANT_ICE) */
 
 /*
  *	The following defines may be modified and activated by
