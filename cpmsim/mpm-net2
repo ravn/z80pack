@@ -60,16 +60,18 @@ cp disks/library/cpm22-1.dsk    disks/driveb.dsk
 cp disks/library/cpm22-2.dsk    disks/drivec.dsk
 cp disks/library/mpm-net2-2.dsk disks/drived.dsk
 
-# 4 MB hard disks for slave E:/F:.  If the pristine library copies are
-# missing, fall back to a blank E5-filled image (mkdskimg) so the launch
-# doesn't fail on a fresh checkout.
+# 4 MB hard disks for slave E:/F:.  Prefer the tailored local/ copy (built by
+# `make mpm-disks` -> stage-drivei-tools); fall back to the frozen library
+# base, then to a blank E5-filled image (mkdskimg) so a fresh checkout still
+# launches.
 for hd in i j; do
-    src=disks/library/mpm-net2-drive$hd.dsk
+    src=disks/local/mpm-net2-drive$hd.dsk
+    [ -f "$src" ] || src=disks/library/mpm-net2-drive$hd.dsk
     dst=disks/drive$hd.dsk
     if [ -f "$src" ]; then
         cp "$src" "$dst"
     else
-        echo "mpm-net2: $src missing, creating blank 4 MB image at $dst" >&2
+        echo "mpm-net2: no local/ or library/ drive$hd image, creating blank 4 MB at $dst" >&2
         rm -f "$dst"
         ./srctools/mkdskimg $hd
     fi
